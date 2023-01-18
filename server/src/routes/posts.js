@@ -3,7 +3,7 @@ const router = express.Router()
 const Post = require('../models/post-model')
 
 router
-    /* Create */
+    /* Create entry*/
     .post('/posts',function (req, res) {
         const post = new Post({
             title: req.body.title,
@@ -30,7 +30,7 @@ router
             }
         }).sort({ _id: -1 })
     })
-    /* Read one entry */
+    /* Read entry */
     .get('/posts/:id', (req, res) => {
         Post.findById(req.params.id, 'title description', (err, post) => {
             if (err) {
@@ -40,7 +40,7 @@ router
             }
         })
     })
-    /* Edit one entry */
+    /* Edit entry */
     .put('/posts/:id', (req, res) => {
         Post.findById(req.params.id, 'title description', (err, post) => {
             if (err) {
@@ -62,6 +62,7 @@ router
             }
         })
     })
+    /* Delete entry */
     .delete('/posts/:id', (req, res) => {
         Post.remove({ _id: req.params.id }, err => {
             if (err) {

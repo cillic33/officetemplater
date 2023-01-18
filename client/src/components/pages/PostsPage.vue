@@ -62,12 +62,11 @@ export default {
 }
 </script>
 
-<style scope>
-.table {
-  border-collapse: collapse;
-}
-.table td {
-  border: 1px solid #333;
-  padding: 8px 12px;
-}
+<style scope lang="stylus">
+.table
+  border-collapse collapse
+
+  td
+    border 1px solid #333
+    padding 8px 12px
 </style>
